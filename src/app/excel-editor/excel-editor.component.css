@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+}
+.drop-zone-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  border: 2px dashed #aaa;
+  margin: 20px auto;
+  width: 90%;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.drop-zone {
+  text-align: center;
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.spreadsheet-container {
+  height: 500px;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.editor-container {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.excel-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.excel-table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.excel-input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.btn {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.highlight-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.highlight-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.highlight-input {
+  width: 120px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}

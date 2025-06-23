@@ -1,0 +1,34 @@
+<div class="drop-zone-container">
+  <div (drop)="onFileDrop($event)" (dragover)="allowDrop($event)" class="drop-zone">
+    <p>📥 Drag & Drop your Excel file here</p>
+  </div>
+</div>
+
+<!-- Editable table view and controls -->
+<div class="editor-container" *ngIf="data.length">
+  <table class="excel-table">
+    <tr *ngFor="let row of data; let rowIndex = index" [id]="'row-' + rowIndex">
+      <td *ngFor="let cell of row; let colIndex = index" [class]="'cell-' + colIndex">
+        <input [(ngModel)]="data[rowIndex][colIndex]"
+          (change)="onCellChange(data[rowIndex][colIndex], rowIndex, colIndex)" class="excel-input" />
+      </td>
+    </tr>
+  </table>
+
+  <div class="button-group">
+    <button class="btn" (click)="addRow()">➕ Add Row</button>
+    <button class="btn" (click)="addColumn()">➕ Add Column</button>
+    <button class="btn" (click)="openExcelInNewTab()">🧾 Open Excel in New Tab</button>
+  </div>
+
+  <div class="highlight-controls">
+    <label class="highlight-label">Highlight:</label>
+    <input type="number" placeholder="Row Index" #rowInput class="highlight-input" />
+    <button class="btn" (click)="highlightRow(+rowInput.value)">Highlight Row</button>
+    <input type="number" placeholder="Column Index" #colInput class="highlight-input" />
+    <button class="btn" (click)="highlightColumn(+colInput.value)">Highlight Column</button>
+  </div>
+</div>
+
+<!-- Spreadsheet UI -->
+<div id="excelViewer" class="spreadsheet-container" [style.display]="data.length ? 'block' : 'none'"></div>

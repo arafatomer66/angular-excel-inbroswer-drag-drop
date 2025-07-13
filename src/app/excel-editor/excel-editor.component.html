@@ -1,8 +1,12 @@
 <div class="drop-zone-container">
-  <div (drop)="onFileDrop($event)" (dragover)="allowDrop($event)" class="drop-zone">
+  <div (drop)="onFileDrop($event)"
+       (dragover)="allowDrop($event)"
+       (dragenter)="allowDrop($event)"
+       class="drop-zone">
     <p>📥 Drag & Drop your Excel file here</p>
   </div>
 </div>
+
 
 <!-- Editable table view and controls -->
 <div class="editor-container" *ngIf="data.length">
@@ -31,4 +35,7 @@
 </div>
 
 <!-- Spreadsheet UI -->
-<div id="excelViewer" class="spreadsheet-container" [style.display]="data.length ? 'block' : 'none'"></div>
+<div  id="excelViewer" class="spreadsheet-container" [style.display]="data.length ? 'block' : 'none'">
+
+
+</div>

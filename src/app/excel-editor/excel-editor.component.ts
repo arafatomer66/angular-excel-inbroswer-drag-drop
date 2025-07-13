@@ -13,8 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class ExcelEditorComponent {
   ss: any;
-  data: any[][] = [];
+  data: any[][] = [["string"]];
   sheetDataForExport: any = null;
+
+  demo = false;
 
   onFileDrop(event: DragEvent) {
     console.log('🔥 File dropped!');
@@ -26,6 +28,8 @@ export class ExcelEditorComponent {
 
     const reader = new FileReader();
     reader.onload = (e: any) => {
+      // data ready
+      // data dhori --> json convert
       const data = new Uint8Array(e.target.result);
       const workbook = XLSX.read(data, { type: 'array' });
       const sheetName = workbook.SheetNames[0];
@@ -71,8 +75,10 @@ export class ExcelEditorComponent {
   }
 
   allowDrop(event: DragEvent) {
-    event.preventDefault();
-  }
+  event.preventDefault();
+  event.stopPropagation(); // optional, prevents nested issues
+}
+
 
   addRow() {
     const columnCount = this.data[0]?.length || 1;
